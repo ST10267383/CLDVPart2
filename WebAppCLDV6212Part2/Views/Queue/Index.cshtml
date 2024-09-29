@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Queue Storage";
+}
+
+<div class="container">
+    <h2>Queue Storage (Message Send/Receive)</h2>
+
+    <!-- Form to send a message to Queue Storage -->
+    <form asp-action="SendMessage" method="post">
+        <label for="message">Send Message:</label>
+        <input type="text" name="message" placeholder="Your message" />
+        <input type="submit" value="Send Message" />
+    </form>
+
+    <hr />
+
+    <!-- Form to receive a message from Queue Storage -->
+    <form asp-action="ReceiveMessage" method="get">
+        <label>Retrieve Message:</label>
+        <input type="submit" value="Receive Message" />
+    </form>
+</div>
+

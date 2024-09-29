@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Blob Storage";
+}
+
+<div class="container">
+    <h2>Blob Storage (File Upload/Download)</h2>
+
+    <!-- Form to upload files to Blob Storage -->
+    <form enctype="multipart/form-data" asp-action="UploadBlob" method="post">
+        <label for="file">Select a file to upload:</label>
+        <input type="file" name="file" />
+        <input type="submit" value="Upload" />
+    </form>
+
+    <!-- Form to download a file from Blob Storage -->
+    <form asp-action="DownloadBlob" method="get">
+        <label for="blobName">Enter the blob name to download:</label>
+        <input type="text" name="blobName" placeholder="Blob name" />
+        <input type="submit" value="Download" />
+    </form>
+</div>

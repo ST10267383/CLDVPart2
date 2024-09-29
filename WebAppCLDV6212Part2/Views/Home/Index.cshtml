@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h2>Cloud File Management and Messaging System</h2>
+
+<p>Welcome to the DataX Solutions system. Please choose a service to interact with:</p>
+
+<ul>
+    <li>
+        <a asp-controller="Blob" asp-action="Index">Blob Storage (File Upload/Download)</a>
+    </li>
+    <li>
+        <a asp-controller="Queue" asp-action="Index">Queue Storage (Send/Receive Messages)</a>
+    </li>
+    <li>
+        <a asp-controller="Table" asp-action="Index">Table Storage (Customer Data Storage)</a>
+    </li>
+    <li>
+        <a asp-controller="File" asp-action="Index">File Storage (Shared Files)</a>
+    </li>
+</ul>

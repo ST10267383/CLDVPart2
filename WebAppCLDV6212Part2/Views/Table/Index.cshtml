@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "Table Storage";
+}
+
+<div class="container">
+    <h2>Table Storage (Customer Data Storage)</h2>
+
+    <!-- Form to insert customer data into Table Storage -->
+    <form asp-action="Insert" method="post">
+        <label for="PartitionKey">Partition Key:</label>
+        <input type="text" name="PartitionKey" placeholder="Partition Key" />
+
+        <label for="RowKey">Row Key:</label>
+        <input type="text" name="RowKey" placeholder="Row Key" />
+
+        <label for="Name">Name:</label>
+        <input type="text" name="Name" placeholder="Name" />
+
+        <label for="Email">Email:</label>
+        <input type="text" name="Email" placeholder="Email" />
+
+        <input type="submit" value="Insert Data" />
+    </form>
+
+    <hr />
+
+    <!-- Form to retrieve customer data from Table Storage -->
+    <form asp-action="Get" method="get">
+        <label for="partitionKey">Partition Key:</label>
+        <input type="text" name="partitionKey" placeholder="Partition Key" />
+
+        <label for="rowKey">Row Key:</label>
+        <input type="text" name="rowKey" placeholder="Row Key" />
+
+        <input type="submit" value="Retrieve Data" />
+    </form>
+</div>

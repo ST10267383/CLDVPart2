@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "File Storage";
+}
+
+<div class="container">
+    <h2>File Storage (Shared File Upload/Download)</h2>
+
+    <!-- Form to upload files to File Storage -->
+    <form enctype="multipart/form-data" asp-action="UploadFile" method="post">
+        <label for="file">Select a file to upload:</label>
+        <input type="file" name="file" />
+        <input type="submit" value="Upload File" />
+    </form>
+
+    <hr />
+
+    <!-- Form to download a file from File Storage -->
+    <form asp-action="DownloadFile" method="get">
+        <label for="fileName">Enter the file name to download:</label>
+        <input type="text" name="fileName" placeholder="File name" />
+        <input type="submit" value="Download File" />
+    </form>
+</div>
+
