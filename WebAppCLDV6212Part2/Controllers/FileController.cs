@@ -4,24 +4,24 @@ using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 namespace WebAppCLDV6212Part2.Controllers
 {
-    public class FileController : Controller
+    public class FileController : Controller //(Bokaba, 2024)
     {
         private readonly ShareServiceClient _shareServiceClient;
         public FileController(IConfiguration configuration)
         {
             _shareServiceClient = new
-           ShareServiceClient(configuration.GetConnectionString("StorageConnectionString"));
+           ShareServiceClient(configuration.GetConnectionString("StorageConnectionString")); //(Pritel, 2018)
         }
         public IActionResult Index()
         {
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> UploadFile(IFormFile file)
+        public async Task<IActionResult> UploadFile(IFormFile file) //(IIE, 2024)
         {
             if (file == null || file.Length == 0)
                 return Content("File not selected");
-            var shareClient = _shareServiceClient.GetShareClient("contractsandlogs");
+            var shareClient = _shareServiceClient.GetShareClient("contractsandlogs"); //(Pritel, 2018)
             await shareClient.CreateIfNotExistsAsync();
             var directoryClient = shareClient.GetRootDirectoryClient();
             var fileClient = directoryClient.GetFileClient(file.FileName);

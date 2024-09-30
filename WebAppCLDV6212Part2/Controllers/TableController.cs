@@ -4,13 +4,13 @@ using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 namespace WebAppCLDV6212Part2.Controllers
 {
-    public class TableController : Controller
+    public class TableController : Controller //(Bokaba, 2024)
     {
         private readonly TableServiceClient _tableServiceClient;
         public TableController(IConfiguration configuration)
         {
             _tableServiceClient = new
-           TableServiceClient(configuration.GetConnectionString("StorageConnectionString"));
+           TableServiceClient(configuration.GetConnectionString("StorageConnectionString")); //(IIE, 2024)
         }
         public IActionResult Index()
         {
@@ -19,7 +19,7 @@ namespace WebAppCLDV6212Part2.Controllers
         [HttpPost]
         public async Task<IActionResult> Insert(CustomerEntity customer)
         {
-            var tableClient = _tableServiceClient.GetTableClient("customersTable");
+            var tableClient = _tableServiceClient.GetTableClient("customersTable"); //(Pritel, 2018)
             await tableClient.CreateIfNotExistsAsync();
             await tableClient.AddEntityAsync(customer);
             return RedirectToAction("Index");

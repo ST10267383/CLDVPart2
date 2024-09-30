@@ -4,13 +4,13 @@ using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 namespace WebAppCLDV6212Part2.Controllers
 {
-    public class BlobController : Controller
+    public class BlobController : Controller //(IIE, 2024)
     {
         private readonly BlobServiceClient _blobServiceClient;
         public BlobController(IConfiguration configuration)
         {
             _blobServiceClient = new
-           BlobServiceClient(configuration.GetConnectionString("StorageConnectionString"));
+           BlobServiceClient(configuration.GetConnectionString("StorageConnectionString")); //(Pritel, 2018)
         }
 
         [HttpGet]
@@ -19,7 +19,7 @@ namespace WebAppCLDV6212Part2.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> UploadBlob(IFormFile file)
+        public async Task<IActionResult> UploadBlob(IFormFile file) //(IIE, 2024)
         {
             if (file == null || file.Length == 0)
                 return Content("File not selected");
@@ -34,7 +34,7 @@ namespace WebAppCLDV6212Part2.Controllers
             return RedirectToAction("Index");
         }
         [HttpGet]
-        public async Task<IActionResult> DownloadBlob(string blobName)
+        public async Task<IActionResult> DownloadBlob(string blobName) //(Pritel, 2018)
         {
             var containerClient =
            _blobServiceClient.GetBlobContainerClient("productimages");
